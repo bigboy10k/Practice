@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Form</title>
+
+    <style>
+        table , tr , th , td{
+            border: 1px solid black;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <section style="border: 1px solid blue;">
+        <h1 style="display: block; text-align: center; background-color: aqua;" >Google form</h1>
+
+        <form style="border: 1px solid black; padding: 2%; margin: 5%; border-radius: 2%;" >
+        <label>Pleases enter your information </label>
+        <input id="name" type="text" pattern="[A-Z a-z]{5,200}" placeholder="here write." title="Pleases write here." required >
+
+        <br>
+
+        <label>This is site for address</label>
+        <br>
+        <textarea id="addr" typr="text" minlength="5" placeholder="here write." lenght="100" wigit title="Pleases add your address here." required ></textarea>
+
+        <br>
+
+        <button type="button" onclick="writ_eall()" Submit style="background-color: blueviolet;">Submit</button><button type="clear" style="background-color: blueviolet;" >Clear</button>
+        </form>
+
+        <br>
+
+        <form style="border: 1px solid black; padding: 2%; margin: 5%; margin-top: 0%; border-radius: 2%;">
+
+            <label>Enter First Number</label>
+            <input placeholder="write here." id="num1"><br>
+            <label>Enter Second Number</label><br>
+            <textarea placeholder="write here." rows="2" cols="80"></textarea>
+            <br>
+            <button type="button" onclick="count_num()" id="num2">Submit</button>
+            <button type="clear">Clear</button>
+        </form>
+
+        <p id="Noti"  style="display: block; background-color: blue; text-align: center; color: aliceblue;"></p>
+
+
+
+    </section>
+
+    <br>
+
+        <table>
+            <tr>
+                <th colspan="2">All information</th>
+            </tr>
+
+            <tr>
+                <td>Your Name: <span id="names"></span></td>
+                <td>Your Address: <span id="addrs"></span></td>
+            </tr>
+
+        </table>
+
+</body>
+
+<script>
+    function writ_eall(){
+
+        let addr_js = document.getElementById("addr").value;
+        let name_js = document.getElementById("name").value;
+        let name_len = name_js.length;
+        let addr_len = addr_js.length; 
+
+        if(name_len || addr_js < 5){
+            document.getElementById("Noti").innerText = "Please enter name or address on 5 letter.";
+        }else{
+            document.getElementById("names").innerText = name_js;
+            document.getElementById("addrs").innerText = addr_js;
+        }
+
+    }
+
+    function count_num(){
+        let num1 = Number.parseInt(document.getElementById("num1").value);
+        let num2 = Number.parseInt(document.getElementById("num2").value);
+
+    }
+</script>
+
+</html>
